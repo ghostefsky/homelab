@@ -1,15 +1,27 @@
-# 🏠 Homelab & Workstation Setup
+# SRE Homelab Repository
 
-## System Specs
+Daily-driver ПК (Ubuntu 24.04 LTS) + Homelab инфраструктура.
+
+## Железо
 - **CPU:** AMD Ryzen 5 7500F
-- **GPU:** NVIDIA GeForce RTX 4070 (Driver 550)
+- **GPU:** NVIDIA GeForce RTX 4070 (Driver 580.xx)
 - **RAM:** 32GB
-- **Storage:** 256GB NVMe (OS) + 4TB HDD/SSD (`sda`)
+- **Storage:** NVMe 238GB (OS) + HDD 3.6TB (/home)
 
-## Phase 1 Status: COMPLETED ✅
-- [x] Ubuntu 24.04 LTS Updated
-- [x] NVIDIA Driver 550 Installed & Active
-- [x] SSH Hardened (Port 2222, Password Auth Disabled, ED25519 Keys)
-- [x] UFW Firewall active (Port 2222 Limit)
-- [x] Fail2ban active (3 retries = 24h ban)
-- [x] Storage structure initialized at `~/homelab_storage`
+## Статус проекта
+
+- [x] **Phase 1: Базовая настройка ОС & Безопасность**
+  - SSH на порту 2222, вход только по ED25519 ключам
+  - UFW (default deny incoming) + Fail2ban
+  - AppArmor, Unattended-upgrades
+  - Хранилище `~/homelab_storage` на 3.6TB HDD
+  - Git-репозиторий и скрипт аудита
+
+- [x] **Phase 2: Docker Engine & Portainer CE**
+  - Docker CE (data-root перенесён на 3.6TB HDD)
+  - Настройка `daemon.json` (ротация логов, live-restore, DNS)
+  - UFW fix через цепочку `DOCKER-USER`
+  - Portainer CE (доступен локально на `https://localhost:9443`)
+  - Обновлённый скрипт аудита `audit.sh`
+
+- [ ] **Phase 3: TBD (Next Steps)**
