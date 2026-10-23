@@ -1,0 +1,23 @@
+
+# OpenTofu / Terraform ignore rules
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+*.iso
+
+# Ansible (динамические файлы и окружение)
+ansible/inventory.ini
+ansible/.venv/
+
+# SSH ключи
+*.pem
+id_ed25519
+id_rsa
