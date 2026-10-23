@@ -1,0 +1,12 @@
+---
+- name: 🚀 Проверка доступности кластера K8s
+  hosts: k8s_cluster
+  gather_facts: false
+
+  tasks:
+    - name: 1. Проверка SSH и Python (Ansible Ping)
+      ansible.builtin.ping:
+
+    - name: 2. Вывод успешного сообщения
+      ansible.builtin.debug:
+        msg: "Успех! Сервер {{ inventory_hostname }} доступен по IP: {{ ansible_host }}"
